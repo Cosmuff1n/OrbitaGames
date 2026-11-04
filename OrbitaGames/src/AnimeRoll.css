@@ -1,0 +1,248 @@
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --cr-black: #171717;
+  --cr-orange: #f47521;
+  --cr-glow: #fe9745;
+}
+
+body {
+  background: var(--cr-black);
+  color: #fff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cr-navbar {
+  background: var(--cr-black);
+  color: var(--cr-orange);
+  padding: 0.4rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .31);
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+}
+
+.logo {
+  font-size: 2rem;
+  margin-right: 0.7rem;
+}
+
+.navbar-brand,
+.nav-link,
+.navbar-toggler {
+  color: var(--cr-orange) !important;
+}
+
+.nav-link:hover,
+.navbar-toggler:hover {
+  color: #fe9745 !important;
+}
+
+.dropdown-item {
+  color: #f47521;
+  font-weight: 600;
+  background: #222 !important;
+}
+
+.dropdown-menu {
+  border: 1.4px solid #f47521;
+}
+
+.hero-banner {
+  aspect-ratio: 21/7;
+  min-height: 260px;
+  max-height: 410px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 24px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 2.7rem;
+  overflow: hidden;
+}
+
+.banner-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, #171717 40%, #0000 100%);
+  z-index: 1;
+}
+
+.hero-title {
+  border-radius: 8px;
+  background: #fff2;
+  width: 180px;
+  max-height: 85%;
+  object-fit: contain;
+  margin-left: 5vw;
+  z-index: 2;
+}
+
+.banner-info {
+  margin-left: 4.2vw;
+  margin-bottom: 2vw;
+  z-index: 2;
+  color: #fff;
+  max-width: 44vw;
+  position: relative;
+}
+
+.banner-info h1 {
+  font-size: 2.3rem;
+  color: #f47521;
+  font-weight: 900;
+  text-shadow: 1px 2px 8px #000a;
+}
+
+.banner-dots {
+  position: absolute;
+  right: 3vw;
+  bottom: 2vw;
+  display: flex;
+  gap: 0.7em;
+  z-index: 2;
+}
+
+.banner-dots .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff4;
+  border: 2.5px solid #fff6;
+  margin-right: 0.07rem;
+}
+
+.banner-dots .dot.active {
+  background: var(--cr-orange);
+  border-color: #fff;
+}
+
+.section-title {
+  color: #f47521 !important;
+  letter-spacing: 1px;
+  margin-left: 1.7rem;
+}
+
+.anime-section {
+  margin: 2.8rem 0 0 0;
+}
+
+.horizontal-scroll,
+.row.flex-nowrap.overflow-auto {
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  padding-bottom: 1.3rem;
+}
+
+.anime-card {
+  background: #232323;
+  border-radius: 19px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.31);
+  min-width: 220px;
+  max-width: 220px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.18s;
+}
+
+.anime-card:hover {
+  transform: scale(1.045) translateY(-6px);
+  box-shadow: 0 8px 30px var(--cr-orange);
+}
+
+.cover-container {
+  position: relative;
+  background: #1a1a1a;
+  height: 330px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.cover-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 3/4;
+  min-height: 260px;
+  max-height: 410px;
+}
+
+.play-button {
+  position: absolute;
+  bottom: 10px;
+  right: 13px;
+  background: var(--cr-orange);
+  border: none;
+  color: #fff;
+  padding: 0.4rem 0.9rem;
+  border-radius: 29px;
+  font-weight: 700;
+  font-size: 1.09rem;
+  box-shadow: 0 0 12px var(--cr-glow);
+  cursor: pointer;
+}
+
+.play-button:hover {
+  background: #fe9745;
+}
+
+.anime-info {
+  padding: 1rem;
+  background: #232323;
+}
+
+.anime-info h3 {
+  margin: 0 0 0.45rem 0;
+  color: var(--cr-orange);
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.anime-info .genres {
+  font-size: 0.92rem;
+  color: #e9b87b;
+  margin-bottom: 3px;
+}
+
+.anime-info .stats {
+  color: #b2b2b2;
+  font-size: 0.88rem;
+  margin-bottom: 7px;
+}
+
+.anime-info .desc {
+  font-size: 0.97rem;
+  color: #ececec;
+  line-height: 1.45;
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+
+  .anime-card,
+  .anime-card img {
+    width: 135px;
+    min-width: 135px;
+    max-width: 135px;
+  }
+
+  .cover-container {
+    height: 180px;
+  }
+
+  .hero-title {
+    max-width: 32vw;
+    margin-left: 2vw;
+  }
+
+  .banner-info h1 {
+    font-size: 1.2rem;
+  }
+}

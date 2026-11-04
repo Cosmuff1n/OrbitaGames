@@ -1,0 +1,38 @@
+{
+  "name": "orbita-tech-basico",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "npm run test:karma",
+    "test:karma": "node scripts/build-karma-tests.mjs && karma start karma.conf.cjs --single-run",
+    "test:coverage": "npm run test:karma",
+    "start": "npm run dev",
+    "test:browser": "node scripts/build-karma-tests.mjs && karma start karma.conf.cjs --browsers Chrome"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.9.4",
+    "bootstrap": "^5.3.3"
+  },
+  "devDependencies": {
+    "vite": "^7.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "karma": "^6.4.4",
+    "karma-jasmine": "^5.1.0",
+    "jasmine-core": "^5.7.1",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-coverage": "^2.2.1",
+    "esbuild": "^0.25.0",
+    "@babel/core": "^7.27.0",
+    "babel-plugin-istanbul": "^7.0.0",
+    "@testing-library/react": "^16.3.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

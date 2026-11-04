@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+main.container {
+    min-height: 65vh;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+}
+
+.product-cover-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 5rem;
+    text-decoration: none;
+    background: #292929;
+}
+
+.anime-info a {
+    color: var(--cr-orange);
+    text-decoration: none;
+}
+
+.anime-card {
+    height: 100%;
+}
+
+.panel,
+.product-card {
+    color: #222;
+}
+
+.dropdown-menu .dropdown-item {
+    color: #f47521;
+}
+
+footer a {
+    color: var(--cr-orange);
+}
+
+body {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.75)),
+        url("src/images/background.png");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* Nombre de la tienda */
+.cr-navbar .navbar-brand {
+    font-family: 'Bangers', cursive;
+    font-size: 50px;
+    
+}
+
+/* Menú de navegación */
+.cr-navbar .nav-link,
+.cr-navbar .btn {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 20px;
+}
