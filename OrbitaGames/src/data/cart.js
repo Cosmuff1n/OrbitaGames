@@ -1,7 +1,7 @@
-// Operaciones de cart: reciben datos y devuelven una copia actualizada.
+//Operaciones de cart: reciben datos y devuelven una copia actualizada.
 import { clone, required, integer, get } from "./validation.js";
 export const cartActions = {
-  /* Añade unidades al carrito validando existencia, cantidad entera y stock disponible. */ 
+  //Añade unidades al carrito validando existencia, cantidad entera y stock disponible. 
   addToCart(
   state,
   id,
@@ -9,11 +9,11 @@ export const cartActions = {
 ) {
     return clone(state, (estado) => {
       const p = get(estado.products, id, "Producto");
-      /* Cantidad seleccionada por el cliente antes de añadir al carrito. */
+      //Cantidad seleccionada por el cliente antes de añadir al carrito.
       const qty = integer(quantity, "Cantidad", 1);
-      /* Comprueba si este producto ya estaba agregado en el carrito. */
+      //Comprueba si este producto ya estaba agregado en el carrito.
       const existing = estado.cart.find((producto) => producto.productId == p.id);
-      /* Calcula la cantidad final que se desea comprar y la compara con el stock. */
+      //Calcula la cantidad final que se desea comprar y la compara con el stock.
       const requested = (existing?.quantity || 0) + qty;
       if (requested > p.stock)
         throw Error("No hay stock suficiente para esa cantidad.");
@@ -25,7 +25,7 @@ export const cartActions = {
         });
     });
   },
-  /* Actualiza cantidad; cero elimina la línea y nunca permite superar el stock. */ 
+  //Actualiza cantidad; cero elimina la línea y nunca permite superar el stock. 
   changeQuantity(
     state,
     id,
@@ -41,7 +41,7 @@ export const cartActions = {
       else line.quantity = n;
     });
   },
-  /* Elimina una línea de carrito correspondiente al ID indicado. */ 
+  //Elimina una línea de carrito correspondiente al ID indicado. 
   removeFromCart(
     state,
     id,
@@ -50,7 +50,7 @@ export const cartActions = {
       estado.cart = estado.cart.filter((producto) => producto.productId != Number(id));
     });
   },
-  /* Deja vacío el carrito conservando el resto de la información. */ 
+  //Deja vacío el carrito conservando el resto de la información. 
   clearCart(
     state,
   ) {

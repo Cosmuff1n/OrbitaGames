@@ -9,7 +9,7 @@ const links = [
   ["/admin/perfil", "Perfil"],
 ];
 
-// Menú sencillo; Outlet inserta la sección administrativa correspondiente a la URL.
+// Menú, Outlet pone la sección administrativa de la URL.
 export default function AdminLayout() {
   return (
     <>

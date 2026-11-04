@@ -1,5 +1,5 @@
 // Este componente crea inputs, selects y textareas reutilizables.
-// Las props son los datos que recibe desde cada formulario.
+// Los props son los datos que recibe desde cada formulario.
 export default function Field({
   label,
   value,
@@ -14,14 +14,14 @@ export default function Field({
   minLength,
   placeholder = "",
 }) {
-  // Si value es null o undefined, mostramos una cadena vacía.
+  // Si value es null o undefined, ponemos string vacio.
   const text = value ?? "";
 
   return (
     <label className="field">
       <span>{label}{required ? " *" : ""}</span>
 
-      {/* En un select ofrecemos una lista de opciones. */}
+      {/*En un select ponemos una lista de opciones*/}
       {as == "select" ? (
         <select
           className="form-select"
@@ -39,7 +39,7 @@ export default function Field({
           ))}
         </select>
       ) : as == "textarea" ? (
-        // Para textos largos usamos textarea.
+        //Para textos largos usamos textarea
         <textarea
           className="form-control"
           value={text}
@@ -49,7 +49,7 @@ export default function Field({
           onChange={(event) => onChange(event.target.value)}
         />
       ) : (
-        // Para nombre, correo, números, etc. usamos un input normal.
+        // Para nombre, correo, números, etc usamos un input normal
         <input
           className="form-control"
           type={type}

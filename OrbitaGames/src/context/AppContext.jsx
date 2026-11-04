@@ -1,10 +1,10 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { actions, initialData } from "../data/storeActions.js";
-/* Clave fija con la que identificamos estos datos en localStorage. */
+/*clave fija con la que identificamos estos datos en localStorage*/
 export const STORE_KEY = "orbita-tech-ep2-v1";
-/* Creamos el Context para compartir información sin pasar props por todas las pantallas. */
+/*creamos el Context para compartir información rapido y no andar en todas las panrallas con el prop*/
 const StoreContext = createContext(null);
-/* Al iniciar, intenta leer localStorage y comprobar que haya colecciones válidas. Si falla, recupera datos semilla. */
+/*comienza leyendo localStorage y comprobar que haya colecciones válidas. Si falla, los recupera*/
 function restore() {
   try {
     const raw = localStorage.getItem(STORE_KEY);
@@ -14,27 +14,27 @@ function restore() {
         return d;
     }
   } catch {
-    /* si no hay almacenamiento, se utiliza dataset semilla */
+    /*si no hay almacenamiento, se utiliza los datos de la seed*/
   }
   return initialData();
 }
-/* Almacena datos, sesión y avisos; expone las funciones compartidas mediante StoreContext.Provider. */
+/*Almacena datos, sesión y avisos; expone las funciones compartidas mediante StoreContext.Provider*/
 export function AppProvider({ children }) {
-  /* Fuente compartida de productos, carrito, pedidos, usuarios y categorías. */
+  /*Fuente compartida de productos, carrito, pedidos, usuarios y categorías*/
   const [data, setData] = useState(restore);
-  /* Sesión temporal usada para mostrar nombre y rol; se pierde al refrescar. */
+  /*Sesión temporal usada para mostrar nombre y rol; se pierde al refrescar*/
   const [session, setSession] = useState(null);
-  /* Mensaje de éxito o error que se muestra después de una acción. */
+  /*Mensaje de éxito o error que se muestra después de una acción*/
   const [notice, setNotice] = useState(null);
-  /* Efecto: cada vez que cambia data, guarda una copia JSON en localStorage. Si el navegador lo impide, la app sigue funcionando. */
+  /*Efecto: cada vez que cambia data, guarda una copia JSON en localStorage. Si el navegador lo impide, la app sigue funcionando*/
   useEffect(() => {
     try {
       localStorage.setItem(STORE_KEY, JSON.stringify(data));
     } catch {
-      /* modo sin almacenamiento disponible */
+      /*aqui deberia ir el almacenamiento, coming soon*/
     }
   }, [data]);
-  /* Ejecuta una acción que devuelve un nuevo estado. Si tiene éxito lo guarda; si falla muestra un mensaje. */
+  /*Ejecuta una acción que devuelve un nuevo estado. Si tiene éxito lo guarda; si falla muestra un mensaje*/
   function run(operation, message = "Cambio guardado en el navegador.") {
     try {
       const next = operation(data);
@@ -52,7 +52,7 @@ export function AppProvider({ children }) {
       return null;
     }
   }
-  /* Comprueba credenciales SOLO de demostración y crea una sesión en memoria. No existe autenticación real. */
+  /*Comprueba credenciales SOLO de demostración y crea una sesión en memoria. No existe autenticación real*/
   function login(email, password) {
     if (!email.trim() || password.length < 4)
       return {
@@ -72,7 +72,7 @@ export function AppProvider({ children }) {
       role: admin ? "admin" : "cliente",
     };
   }
-  /* Crea un perfil cliente mediante saveUser y abre una sesión temporal si el registro resulta válido. */
+  /*Crea un perfil cliente mediante saveUser y abre una sesión temporal si el registro resulta válido*/
   function register(form) {
     const next = run(
       (estado) =>
@@ -91,7 +91,7 @@ export function AppProvider({ children }) {
     });
     return true;
   }
-  /* Cierra la sesión simulada limpiando el estado session. */
+  /*cierra la sesióny limpia el estado de la sesion*/
   function logout() {
     setSession(null);
   }
@@ -112,7 +112,7 @@ export function AppProvider({ children }) {
     </StoreContext.Provider>
   );
 }
-/* Hook personalizado que accede al contexto y detecta si se intenta usar fuera de AppProvider. */
+/*Hook personalizado que accede al contexto y detecta si se intenta usar fuera de AppProvider*/
 export function useApp() {
   const contexto = useContext(StoreContext);
   if (!contexto) throw Error("useApp debe usarse dentro de AppProvider");

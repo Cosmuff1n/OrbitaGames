@@ -1,4 +1,4 @@
-// Recibe el título por props; cada página elige su propio contenido.
+// Recibe el titulo por props, cada página lo modifica
 export default function SectionTitle({ title, subtitle, action }) {
   return (
     <header className="page-heading">

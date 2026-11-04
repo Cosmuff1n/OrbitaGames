@@ -29,7 +29,8 @@ import AdminCategories from "../pages/admin/AdminCategories.jsx";
 import AdminUsers from "../pages/admin/AdminUsers.jsx";
 import Reports from "../pages/admin/Reports.jsx";
 import Profile from "../pages/admin/Profile.jsx";
-/* Comprueba si el usuario ficticio tiene rol admin. Si no, lo lleva al login; no reemplaza autorización de servidor. */
+
+/*Comprueba si el usuario ficticio tiene rol admin. Si no, lo lleva al login*/
 function AdminGuard() {
   const { session } = useApp();
   return session?.role == "admin" ? (
@@ -38,7 +39,7 @@ function AdminGuard() {
     <Navigate to="/login" replace />
   );
 }
-/* Vista de respaldo para rutas inexistentes. */
+/*Vista de respaldo para rutas inexistentes*/
 function NotFound() {
   return (
     <div>
@@ -48,7 +49,7 @@ function NotFound() {
     </div>
   );
 }
-/* El Provider deja los datos accesibles a todas las rutas; BrowserRouter sincroniza URL y vista. */
+/*El Provider deja los datos accesibles a todas las rutas; BrowserRouter sincroniza URL y vista*/
 export default function AppRoutes() {
   return (
     <AppProvider>

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { discountedPrice, formatPrice } from "../data/prices.js";
 
-// Tarjeta basada en el JSX anime-card / cover-container / anime-info original.
+// Tarjeta basada en el css del bootstrap descargado
 export default function ProductCard({ product, onAdd }) {
   return (
     <article className="anime-card">
