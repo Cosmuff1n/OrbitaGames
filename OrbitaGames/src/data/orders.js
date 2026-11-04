@@ -2,14 +2,14 @@
 import { clone, required, integer, get } from "./validation.js";
 import { cartItems, discountedPrice } from "./prices.js";
 export const ordersActions = {
-  /* Valida datos, genera líneas y total; registra pago simulado. En éxito descuenta stock y vacía carrito. */ placeOrder(
+  /* Valida datos, genera líneas y total; registra pago simulado. En éxito descuenta stock y vacía carrito*/ placeOrder(
   state,
   form,
   { simulateFailure = false } = {},
 ) {
     return clone(state, (estado) => {
       if (!estado.cart.length) throw Error("El carrito está vacío.");
-      /* Valida y reúne los datos obligatorios del cliente antes de registrar el pedido. */
+      /* Valida y reúne los datos obligatorios del cliente antes de registrar el pedido*/
       const customer = {
         name: required(form.name, "Nombre"),
         lastName: required(form.lastName, "Apellido"),
@@ -22,7 +22,7 @@ export const ordersActions = {
       };
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.email))
         throw Error("Correo electrónico inválido.");
-      /* Líneas del carrito o pedido con producto y cantidad, para mostrarlas o procesarlas. */
+      /* Líneas del carrito o pedido con producto y cantidad, para mostrarlas o procesarlas*/
       const lines = cartItems(estado).map((producto) => ({
         productId: producto.productId,
         name: producto.product.name,
@@ -36,7 +36,7 @@ export const ordersActions = {
       )
         throw Error("Stock insuficiente en el carrito.");
       const result = simulateFailure ? "rechazado" : "pagado";
-      /* Crea el comprobante con código, fecha, cliente, total y estado simulado. */
+      /* Crea el comprobante con código, fecha, cliente, total y estado simulado*/
       const order = {
         id: estado.next.order++,
         reference: `ORB-${String(estado.next.order - 1).padStart(5, "0")}`,

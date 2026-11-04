@@ -1,7 +1,7 @@
 // Operaciones de users: reciben datos y devuelven una copia actualizada.
 import { clone, required, integer, get } from "./validation.js";
 export const usersActions = {
-  saveUser(      //Crea o modifica un perfil local validando nombre, formato de correo y duplicados. */
+  saveUser(      //Crea o modifica un perfil local validando nombre, formato de correo y duplicados*/
     state,
     form,
     id = null,
@@ -14,7 +14,7 @@ export const usersActions = {
       if (estado.users.some((usuario) => usuario.email == email && usuario.id != id))
         throw Error("Correo ya registrado.");
 
-      /* Restringe el rol a cliente o administrador para conservar datos coherentes. */
+      /* Restringe el rol a cliente o administrador para conservar datos coherentes*/
       const role = ["cliente", "admin"].includes(form.role)
         ? form.role
         : "cliente";

@@ -1,12 +1,12 @@
 // Operaciones de products: reciben datos y devuelven una copia actualizada.
 import { clone, required, integer, get } from "./validation.js";
 export const productsActions = {
-  /* Crea o modifica un producto después de validar sus campos, su categoría y su descuento. */ saveProduct(
+  /* Crea o modifica un producto después de validar sus campos, su categoría y su descuento*/ saveProduct(
   state,
   form,
   id = null,
 ) {
-    return clone(state, (estado) => {       //Normaliza y valida los valores antes de crear o editar el registro. */
+    return clone(state, (estado) => {       //Normaliza y valida los valores antes de crear o editar el registro*/
 
       const fields = {
         name: required(form.name, "Nombre"),
@@ -37,7 +37,7 @@ export const productsActions = {
         });
     });
   },
-  /* Elimina un producto solo si existe y no está actualmente en el carrito. */ deleteProduct(
+  /* Elimina un producto solo si existe y no está actualmente en el carrito*/ deleteProduct(
     state,
     id,
   ) {
