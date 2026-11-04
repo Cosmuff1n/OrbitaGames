@@ -18,7 +18,7 @@ await build({
       name: "coverage",
       setup(builder) {
         builder.onLoad(
-          { filter: /\/src\/.*\.(js|jsx)$/ },
+          { filter: /[\\/]src[\\/].*\.(js|jsx)$/ },
           async ({ path: filename }) => {
             const source = await readFile(filename, "utf8");
             const result = await transformAsync(source, {
