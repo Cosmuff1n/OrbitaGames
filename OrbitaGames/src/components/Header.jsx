@@ -16,7 +16,7 @@ export default function Header() {
       <nav className="cr-navbar navbar px-3">
         <div className="container-fluid gap-2">
           <Link to="/" className="navbar-brand">
-            <img src="src/images/logo.png" alt="" width="150" height="150" /> Orbita games
+            <img src="/images/logo.png" alt="" width="150" height="150" /> Orbita games
           </Link>
           <div className="d-flex flex-wrap align-items-center gap-3">
             <NavLink className="nav-link" to="/" end>Inicio</NavLink>
