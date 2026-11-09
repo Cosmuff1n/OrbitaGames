@@ -39,7 +39,7 @@ export const seedProducts = [
     category: "Nintendo Switch 2",
     price: 149990,
     stock: 12,
-    icon: "src/images/zelda.jpg",
+    icon: "/images/zelda.jpg",
     description: "El remake que todos estaban esperando.",
     featured: true,
     discount: 10,
