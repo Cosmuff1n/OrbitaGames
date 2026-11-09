@@ -6,7 +6,7 @@ export const seedProducts = [
     category: "Nintendo Switch 2",
     price: 189990,
     stock: 9,
-    icon: "src/images/mariokart.jpg",
+    icon: "/images/mariokart.jpg",
     description: "El Mario carreras más reciente.",
     featured: true,
     discount: 12,
