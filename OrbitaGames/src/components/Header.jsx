@@ -52,7 +52,7 @@ export default function Header() {
           <Link to="/blog">Blog</Link>
           <Link to="/contacto">Contacto</Link>
         </nav>
-        <small>Orbita Games.</small>
+        <small>Orbita Games by Cosmuff1n - 2026</small>
       </footer>
     </div>
   );
